@@ -1,3 +1,9 @@
+# Create-react-app-typescript-redux
+
+This boilerplate example adds:
+
+- React specific and Prettier friendly TSlint rules
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
