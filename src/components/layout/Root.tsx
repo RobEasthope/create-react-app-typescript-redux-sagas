@@ -1,5 +1,7 @@
 import * as React from "react";
-import styled from "../../utils/styled";
+import styled from "styled-components";
+
+import brandColours from "./../../styles/colors/brandColors";
 
 interface RootProps {
   className?: string;
@@ -16,10 +18,7 @@ const Wrapper = styled("div")`
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  background-color: ${(props: { theme: { colors: { background: any } } }) =>
-    props.theme.colors.background};
-  color: ${(props: { theme: { colors: { body: any } } }) =>
-    props.theme.colors.body};
-  font-family: ${(props: { theme: { fonts: { body: any } } }) =>
-    props.theme.fonts.body};
+  background-color: #ebebea;
+  color: #2e2e2c;
+  font-family: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif";
 `;

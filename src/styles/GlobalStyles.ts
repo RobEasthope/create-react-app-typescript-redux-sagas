@@ -1,6 +1,6 @@
-import { css } from "react-emotion";
+import { createGlobalStyle } from "styled-components";
 
-export default css`
+export const GlobalStyles = createGlobalStyle`
   body {
     width: 100%;
     overflow-x: hidden;
@@ -37,3 +37,5 @@ export default css`
     border-collapse: collapse;
   }
 `;
+
+export default GlobalStyles;

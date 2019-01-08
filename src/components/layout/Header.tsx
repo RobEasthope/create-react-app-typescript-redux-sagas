@@ -2,7 +2,7 @@ import { css } from "emotion";
 import * as React from "react";
 import { NavLink } from "react-router-dom";
 import LayoutContainer from "../../containers/LayoutContainer";
-import styled from "../../utils/styled";
+import styled from "styled-components";
 import Container from "./Container";
 
 interface HeaderProps {
@@ -48,12 +48,9 @@ export default Header;
 
 const Wrapper = styled("header")`
   padding: 0.5rem 1.5rem;
-  background-color: ${(props: { theme: { colors: { brand: any } } }) =>
-    props.theme.colors.brand};
-  color: ${(props: { theme: { colors: { white: any } } }) =>
-    props.theme.colors.white};
-  font-family: ${(props: { theme: { fonts: { headings: any } } }) =>
-    props.theme.fonts.headings};
+  background-color: red;
+  color: white;
+  font-family: "'IBM Plex Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif";
 `;
 
 const HeaderInner = styled(Container)`
@@ -62,8 +59,7 @@ const HeaderInner = styled(Container)`
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
-      props.theme.breakpoints.lg}) {
+  @media (min-width: 992px) {
     flex-direction: row;
   }
 `;
@@ -76,8 +72,7 @@ const HeaderNav = styled("nav")`
   flex: 1 1 auto;
   margin: 1rem 0;
 
-  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
-      props.theme.breakpoints.lg}) {
+  @media (min-width: 992px) {
     margin: 0;
   }
 `;
@@ -94,26 +89,22 @@ const HeaderRight = styled("div")`
   padding-left: 1rem;
 `;
 
-const Title = styled("h2")`
+const Title = styled.h2`
   margin: 0;
   font-weight: 500;
 `;
 
-const CurrentTheme = styled("span")`
+const CurrentTheme = styled.span`
   margin-right: 1rem;
 `;
 
-const ThemeSwitcherButton = styled("button")`
+const ThemeSwitcherButton = styled.button`
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  border: 1px solid
-    ${(props: { theme: { colors: { white: any } } }) =>
-      props.theme.colors.white};
+  border: 1px solid #ffffff;
   border-radius: 3px;
-  background-color: ${(props: { theme: { colors: { white: any } } }) =>
-    props.theme.colors.white};
-  color: ${(props: { theme: { colors: { brand: any } } }) =>
-    props.theme.colors.brand};
+  background-color: #ffffff;
+  color: red;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -123,7 +114,6 @@ const ThemeSwitcherButton = styled("button")`
   &:hover,
   &:focus {
     background-color: transparent;
-    color: ${(props: { theme: { colors: { white: any } } }) =>
-      props.theme.colors.white};
+    color: #ffffff;
   }
 `;
