@@ -36,7 +36,8 @@
     "typeface-ibm-plex-mono": "^0.0.61",
     "typeface-ibm-plex-sans": "^0.0.61",
     "typesafe-actions": "^3.0.0",
-    "typescript": "3.2.2"
+    "typescript": "3.2.2",
+    "typescript-plugin-styled-components": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

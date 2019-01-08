@@ -1,7 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { RouteComponentProps } from "react-router";
-import styled, { Theme } from "../../utils/styled";
+import Theme from "../../utils/styled";
+import styled from "styled-components";
 
 import LoadingOverlay from "../../components/data/LoadingOverlay";
 import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
@@ -86,21 +87,12 @@ class ShowTeamsPage extends React.Component<AllProps> {
                         <TeamStatsInner>
                           <StatItem>
                             <StatHeading>Wins</StatHeading>
-                            <StatNumber attr="win">
-                              {selected.detail.wins}
-                            </StatNumber>
                           </StatItem>
                           <StatItem>
                             <StatHeading>Losses</StatHeading>
-                            <StatNumber attr="loss">
-                              {selected.detail.losses}
-                            </StatNumber>
                           </StatItem>
                           <StatItem>
                             <StatHeading>Rating</StatHeading>
-                            <StatNumber>
-                              {selected.detail.rating.toFixed(0)}
-                            </StatNumber>
                           </StatItem>
                         </TeamStatsInner>
                       </TeamStats>
@@ -166,21 +158,19 @@ export default connect(
   mapDispatchToProps
 )(ShowTeamsPage);
 
-const Wrapper = styled("div")`
+const Wrapper = styled.div`
   position: relative;
 `;
 
-const TeamInfobox = styled("div")`
+const TeamInfobox = styled.div`
   position: relative;
-  background: ${(props: { theme: { colors: { black: string } } }) =>
-    transparentize(0.1, props.theme.colors.black)};
+  background: transparentize(0.1, black);
   overflow: hidden;
   border-radius: 8px;
-  color: ${(props: { theme: { colors: { white: string } } }) =>
-    darken(0.25, props.theme.colors.white)};
+  color: darken(0.25, white);
 `;
 
-const TeamInfoboxInner = styled("div")`
+const TeamInfoboxInner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -189,20 +179,18 @@ const TeamInfoboxInner = styled("div")`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 125px inset;
   z-index: 2;
 
-  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
-      props.theme.breakpoints.lg}) {
+  @media (min-width: 992px) {
     flex-direction: row;
   }
 `;
 
-const TeamLogo = styled("img")`
+const TeamLogo = styled.img`
   display: block;
   flex-shrink: 0;
   width: 180px;
   height: 128px;
   padding: 1rem;
-  background-color: ${(props: { theme: { colors: { tableOdd: string } } }) =>
-    transparentize(0.25, props.theme.colors.tableOdd)};
+  background-color: ${transparentize(0.25, darken(0.025, "#ebebea"))};
   box-shadow: rgba(0, 0, 0, 0.3) 0px 12px 32px;
   object-fit: contain;
   border-radius: 16px;
@@ -212,26 +200,24 @@ const TeamLogo = styled("img")`
   border-image: initial;
 `;
 
-const TeamInfoboxHeading = styled("div")`
+const TeamInfoboxHeading = styled.div`
   flex: 1 1 100%;
   margin: 1.5rem 0 0;
   text-align: center;
 
-  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
-      props.theme.breakpoints.lg}) {
+  @media (min-width: 992px) {
     margin: 0 1.5rem;
     text-align: left;
   }
 `;
 
-const TeamName = styled("h1")`
+const TeamName = styled.h1`
   margin: 0;
-  color: ${(props: { theme: { colors: { white: any } } }) =>
-    props.theme.colors.white};
+  color: white;
   font-weight: 500;
 `;
 
-const TeamStats = styled("div")`
+const TeamStats = styled.div`
   display: block;
   max-width: 340px;
   margin: 1.5rem 0 0;
@@ -239,18 +225,17 @@ const TeamStats = styled("div")`
   border-radius: 8px;
   padding: 12px;
 
-  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
-      props.theme.breakpoints.lg}) {
+  @media (min-width: 992px) {
     margin: 0;
     flex: 1 0 340px;
   }
 `;
 
-const TeamStatsInner = styled("div")`
+const TeamStatsInner = styled.div`
   display: flex;
 `;
 
-const StatItem = styled("div")`
+const StatItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -259,7 +244,7 @@ const StatItem = styled("div")`
   font-size: 0.8rem;
 `;
 
-const StatHeading = styled("h4")`
+const StatHeading = styled.h4`
   margin: 0;
   margin-bottom: 0.2rem;
   font-size: 1rem;
@@ -269,38 +254,36 @@ interface StatNumberProps {
   attr?: "win" | "loss";
 }
 
-const StatNumber = styled("p")`
+const StatNumber = styled.p`
   margin: 0;
   font-size: 1.5rem;
 `;
 
-const TableWrapper = styled("div")`
+const TableWrapper = styled.div`
   position: relative;
-  max-width: ${(props: { theme: { widths: { md: any } } }) =>
-    props.theme.widths.md};
+  max-width: 720px;
   margin: 0 auto;
   margin-top: 3rem;
   min-height: 200px;
 `;
 
-const PlayerDetail = styled("td")`
+const PlayerDetail = styled.td`
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
 
-const PlayerIcon = styled("img")`
+const PlayerIcon = styled.img`
   width: 32px;
   height: 32px;
 `;
 
-const PlayerName = styled("div")`
+const PlayerName = styled.div`
   flex: 1 1 auto;
   height: 100%;
   margin-left: 1rem;
 
   a {
-    color: ${(props: { theme: { colors: { brand: any } } }) =>
-      props.theme.colors.brand};
+    color: red;
   }
 `;

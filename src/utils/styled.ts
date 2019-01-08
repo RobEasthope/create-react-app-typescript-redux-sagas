@@ -1,4 +1,4 @@
-import styled, { CreateStyled } from "react-emotion";
+// import styled, { CreateStyled } from "react-emotion";
 
 export interface Theme {
   colors: {
@@ -45,4 +45,4 @@ export interface Theme {
   };
 }
 
-export default styled;
+export default Theme;

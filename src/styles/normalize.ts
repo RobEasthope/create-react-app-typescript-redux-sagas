@@ -1,6 +1,6 @@
-import { css } from "react-emotion";
+import { createGlobalStyle } from "styled-components";
 
-export default css`
+export const Normalize = createGlobalStyle`
   /*! modern-normalize | MIT License | https://github.com/sindresorhus/modern-normalize */
 
   /* Document
@@ -287,3 +287,5 @@ export default css`
     display: list-item;
   }
 `;
+
+export default Normalize;

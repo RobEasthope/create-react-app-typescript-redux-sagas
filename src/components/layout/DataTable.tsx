@@ -32,34 +32,25 @@ export default DataTable;
 
 const Wrapper = styled("table")`
   margin-bottom: 0;
-  border-top: 1px solid
-    ${(props: { theme: { colors: { borders: any } } }) =>
-      props.theme.colors.borders};
-  border-bottom: 1px solid
-    ${(props: { theme: { colors: { borders: any } } }) =>
-      props.theme.colors.borders};
+  border-top: 1px solid darken(0.05, "#ebebea");
+  border-bottom: 1px solid darken(0.05, "#ebebea");
 
   thead {
     tr {
       th {
         padding: 1rem;
         text-align: left;
-        border-bottom: 2px solid
-          ${(props: { theme: { colors: { borders: any } } }) =>
-            props.theme.colors.borders};
+        border-bottom: 2px solid darken(0.05, "#ebebea");
       }
     }
   }
 
   tbody {
     tr {
-      border-top: 1px solid
-        ${(props: { theme: { colors: { borders: any } } }) =>
-          props.theme.colors.borders};
+      border-top: 1px solid darken(0.05, "#ebebea");
 
       &:nth-child(even) {
-        background: ${(props: { theme: { colors: { tableOdd: any } } }) =>
-          props.theme.colors.tableOdd};
+        background: darken(0.025, "#ebebea");
       }
 
       td {

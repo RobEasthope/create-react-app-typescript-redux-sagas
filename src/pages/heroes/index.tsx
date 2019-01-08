@@ -118,8 +118,7 @@ export default connect(
 
 const TableWrapper = styled("div")`
   position: relative;
-  max-width: ${(props: { theme: { widths: { md: any } } }) =>
-    props.theme.widths.md};
+  max-width: 720px;
   margin: 0 auto;
   min-height: 200px;
 `;
@@ -141,8 +140,7 @@ const HeroName = styled("div")`
   margin-left: 1rem;
 
   a {
-    color: ${(props: { theme: { colors: { brand: any } } }) =>
-      props.theme.colors.brand};
+    color: red;
   }
 `;
 

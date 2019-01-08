@@ -9894,6 +9894,11 @@ typesafe-actions@^3.0.0:
   resolved "https://registry.yarnpkg.com/typesafe-actions/-/typesafe-actions-3.0.0.tgz#8b162ea11fa7383d4b4d96afc181118e84e06e10"
   integrity sha512-NLpRc/FY+jPfWL0aUXQzjxPyF0Xug2om6akaoRLQ18KGwP2yYNBJu9vkv2q1q+Cx/+edy2Qf6O8xXnYY/xwz1A==
 
+typescript-plugin-styled-components@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/typescript-plugin-styled-components/-/typescript-plugin-styled-components-1.0.0.tgz#b4de4ecd668fedd225d5c94bb5fe9cafbc0f045d"
+  integrity sha512-uvndKU708YsCsud8bnBtSjosMEnUh/MXbUPswbNKjMY7GIumExp2xGEW/+2o3B+6zs98XHX4Z76iS81P5T3XUw==
+
 typescript@3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.2.tgz#fe8101c46aa123f8353523ebdcf5730c2ae493e5"

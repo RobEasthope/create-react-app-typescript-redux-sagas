@@ -42,14 +42,12 @@ export default () => (
 );
 
 const PageContent = styled("article")`
-  max-width: ${(props: { theme: { widths: { md: any } } }) =>
-    props.theme.widths.md};
+  max-width: 720px;
   margin: 0 auto;
   line-height: 1.6;
 
   a {
-    color: ${(props: { theme: { colors: { brand: any } } }) =>
-      props.theme.colors.brand};
+    color: red;
   }
 
   h1,
@@ -57,8 +55,7 @@ const PageContent = styled("article")`
   h3,
   h4 {
     margin-bottom: 0.5rem;
-    font-family: ${(props: { theme: { fonts: { headings: any } } }) =>
-      props.theme.fonts.headings};
+    font-family: "'IBM Plex Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif";
     line-height: 1.25;
   }
 `;

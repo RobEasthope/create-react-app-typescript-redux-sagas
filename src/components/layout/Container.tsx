@@ -3,19 +3,14 @@ import styled from "styled-components";
 const Container = styled("div")`
   margin: 0 auto;
   width: 100%;
-  max-width: ${(props: { theme: { widths: { md: any } } }) =>
-    props.theme.widths.md};
+  max-width: 720px;
 
-  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
-      props.theme.breakpoints.lg}) {
-    max-width: ${(props: { theme: { widths: { lg: any } } }) =>
-      props.theme.widths.lg};
+  @media (min-width: 992px) {
+    max-width: 960px;
   }
 
-  @media (min-width: ${(props: { theme: { breakpoints: { xl: any } } }) =>
-      props.theme.breakpoints.xl}) {
-    max-width: ${(props: { theme: { widths: { xl: any } } }) =>
-      props.theme.widths.xl};
+  @media (min-width: 1200px) {
+    max-width: 1140px};
   }
 `;
 

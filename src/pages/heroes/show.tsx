@@ -8,13 +8,14 @@ import Page from "../../components/layout/Page";
 import { darken } from "polished";
 import { Themed } from "react-emotion";
 import { Dispatch } from "redux";
+import styled from "styled-components";
 import LoadingOverlay from "../../components/data/LoadingOverlay";
 import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
 import LoadingSpinner from "../../components/data/LoadingSpinner";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
 import { fetchRequest } from "../../store/heroes/actions";
 import { Hero } from "../../store/heroes/types";
-import styled, { Theme } from "../../utils/styled";
+import { Theme } from "../../utils/styled";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
@@ -90,29 +91,7 @@ class ShowHeroesPage extends React.Component<AllProps, State> {
                     </HeroDetails>
                   </HeroInfoboxHeading>
                   <HeroStats>
-                    <HeroStatsInner>
-                      <StatAttribute
-                        attr="str"
-                        isPrimaryAttr={selected.primary_attr === "str"}
-                      >
-                        <Bullet attr="str" /> {selected.base_str || 0} +{" "}
-                        {selected.str_gain || 0}
-                      </StatAttribute>
-                      <StatAttribute
-                        attr="agi"
-                        isPrimaryAttr={selected.primary_attr === "agi"}
-                      >
-                        <Bullet attr="agi" /> {selected.base_agi || 0} +{" "}
-                        {selected.agi_gain || 0}
-                      </StatAttribute>
-                      <StatAttribute
-                        attr="int"
-                        isPrimaryAttr={selected.primary_attr === "int"}
-                      >
-                        <Bullet attr="int" /> {selected.base_int || 0} +{" "}
-                        {selected.int_gain || 0}
-                      </StatAttribute>
-                    </HeroStatsInner>
+                    <HeroStatsInner />
                   </HeroStats>
                 </HeroInfoboxInner>
               </HeroInfobox>
@@ -146,20 +125,20 @@ export default connect(
   mapDispatchToProps
 )(ShowHeroesPage);
 
-const Wrapper = styled("div")`
+const Wrapper = styled.div`
   position: relative;
 `;
 
-const HeroInfobox = styled("div")`
+const HeroInfobox = styled.div`
   position: relative;
   background: rgba(0, 0, 0, 0.9);
   overflow: hidden;
   border-radius: 8px;
-  color: ${(props: { theme: { colors: { white: string } } }) =>
-    darken(0.25, props.theme.colors.white)};
+  color: 
+    darken(0.25, white)};
 `;
 
-const HeroInfoboxBlurBackground = styled("img")`
+const HeroInfoboxBlurBackground = styled.img`
   position: absolute;
   top: -12.5%;
   left: -12.5%;
@@ -181,8 +160,7 @@ const HeroInfoboxInner = styled("div")`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 125px inset;
   z-index: 2;
 
-  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
-      props.theme.breakpoints.lg}) {
+  @media (min-width: 992px) {
     flex-direction: row;
   }
 `;
@@ -201,40 +179,36 @@ const HeroInfoboxImage = styled("img")`
   border-image: initial;
 `;
 
-const HeroInfoboxHeading = styled("div")`
+const HeroInfoboxHeading = styled.div`
   flex: 1 1 100%;
   margin: 1.5rem 0 0;
   text-align: center;
 
-  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
-      props.theme.breakpoints.lg}) {
+  @media (min-width: 992px) {
     margin: 0 1.5rem;
     text-align: left;
   }
 `;
 
-const HeroName = styled("h1")`
+const HeroName = styled.h1`
   margin: 0;
-  color: ${(props: { theme: { colors: { white: any } } }) =>
-    props.theme.colors.white};
+  color: white;
   font-weight: 500;
 `;
 
-const HeroDetails = styled("p")`
+const HeroDetails = styled.p`
   margin: 0.5rem 0 0;
-  color: ${(props: { theme: { colors: { white: any } } }) =>
-    props.theme.colors.white};
+  color: white;
   font-size: 0.8rem;
   letter-spacing: 1px;
   text-transform: uppercase;
 
   & span {
-    color: ${(props: { theme: { colors: { white: string } } }) =>
-      darken(0.25, props.theme.colors.white)};
+    color: darken(0.25, white);
   }
 `;
 
-const HeroStats = styled("div")`
+const HeroStats = styled.div`
   display: block;
   max-width: 340px;
   margin: 1.5rem 0 0;
@@ -242,14 +216,13 @@ const HeroStats = styled("div")`
   border-radius: 8px;
   padding: 12px;
 
-  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
-      props.theme.breakpoints.lg}) {
+  @media (min-width: $992px) {
     margin: 0;
     flex: 1 0 340px;
   }
 `;
 
-const HeroStatsInner = styled("div")`
+const HeroStatsInner = styled.div`
   display: flex;
 `;
 
@@ -258,7 +231,7 @@ interface StatAttributeProps {
   isPrimaryAttr?: boolean;
 }
 
-const StatAttribute = styled("div")`
+const StatAttribute = styled.div`
   display: flex;
   align-items: center;
   flex: 1 1 0;
