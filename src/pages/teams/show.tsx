@@ -1,61 +1,61 @@
-import * as React from 'react'
-import { connect } from 'react-redux'
-import { RouteComponentProps } from 'react-router'
-import styled, { Theme } from '../../utils/styled'
+import * as React from "react";
+import { connect } from "react-redux";
+import { RouteComponentProps } from "react-router";
+import styled, { Theme } from "../../utils/styled";
 
-import Page from '../../components/layout/Page'
-import Container from '../../components/layout/Container'
-import LoadingOverlay from '../../components/data/LoadingOverlay'
-import LoadingOverlayInner from '../../components/data/LoadingOverlayInner'
-import LoadingSpinner from '../../components/data/LoadingSpinner'
+import LoadingOverlay from "../../components/data/LoadingOverlay";
+import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
+import LoadingSpinner from "../../components/data/LoadingSpinner";
+import Container from "../../components/layout/Container";
+import Page from "../../components/layout/Page";
 
-import { ApplicationState, ConnectedReduxProps } from '../../store'
-import { TeamSelectedPayload } from '../../store/teams/types'
-import { selectTeam, clearSelected } from '../../store/teams/actions'
-import { darken, transparentize } from '../../../node_modules/polished'
-import { Themed } from '../../../node_modules/react-emotion'
-import DataTable from '../../components/layout/DataTable'
-import { Dispatch } from 'redux';
+import { Dispatch } from "redux";
+import { darken, transparentize } from "../../../node_modules/polished";
+import { Themed } from "react-emotion";
+import DataTable from "../../components/layout/DataTable";
+import { ApplicationState, ConnectedReduxProps } from "../../store";
+import { clearSelected, selectTeam } from "../../store/teams/actions";
+import { TeamSelectedPayload } from "../../store/teams/types";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
-  loading: boolean
-  selected?: TeamSelectedPayload
-  errors?: string
+  loading: boolean;
+  selected?: TeamSelectedPayload;
+  errors?: string;
 }
 
 interface PropsFromDispatch {
-  selectTeam: typeof selectTeam
-  clearSelected: typeof clearSelected
+  selectTeam: typeof selectTeam;
+  clearSelected: typeof clearSelected;
 }
 
 interface RouteParams {
-  id: string
+  id: string;
 }
 
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState &
   PropsFromDispatch &
   RouteComponentProps<RouteParams> &
-  ConnectedReduxProps
+  ConnectedReduxProps;
 
 const formatPlayerIcon = (account_id: number) =>
-  `https://www.opendota.com/assets/images/dota2/players/${account_id}.png`
+  `https://www.opendota.com/assets/images/dota2/players/${account_id}.png`;
 
 class ShowTeamsPage extends React.Component<AllProps> {
   public componentDidMount() {
-    const { match } = this.props
+    const { match } = this.props;
 
-    this.props.selectTeam(match.params.id)
+    this.props.selectTeam(match.params.id);
   }
 
   public componentWillUnmount() {
     // clear selected team state before leaving the page
-    this.props.clearSelected()
+    this.props.clearSelected();
   }
 
   public render() {
-    const { selected, loading } = this.props
+    const { selected, loading } = this.props;
 
     return (
       <Page>
@@ -74,7 +74,10 @@ class ShowTeamsPage extends React.Component<AllProps> {
                   <TeamInfobox>
                     <TeamInfoboxInner>
                       {selected.detail.logo_url && (
-                        <TeamLogo src={selected.detail.logo_url} alt={selected.detail.tag} />
+                        <TeamLogo
+                          src={selected.detail.logo_url}
+                          alt={selected.detail.tag}
+                        />
                       )}
                       <TeamInfoboxHeading>
                         <TeamName>{selected.detail.name}</TeamName>
@@ -83,15 +86,21 @@ class ShowTeamsPage extends React.Component<AllProps> {
                         <TeamStatsInner>
                           <StatItem>
                             <StatHeading>Wins</StatHeading>
-                            <StatNumber attr="win">{selected.detail.wins}</StatNumber>
+                            <StatNumber attr="win">
+                              {selected.detail.wins}
+                            </StatNumber>
                           </StatItem>
                           <StatItem>
                             <StatHeading>Losses</StatHeading>
-                            <StatNumber attr="loss">{selected.detail.losses}</StatNumber>
+                            <StatNumber attr="loss">
+                              {selected.detail.losses}
+                            </StatNumber>
                           </StatItem>
                           <StatItem>
                             <StatHeading>Rating</StatHeading>
-                            <StatNumber>{selected.detail.rating.toFixed(0)}</StatNumber>
+                            <StatNumber>
+                              {selected.detail.rating.toFixed(0)}
+                            </StatNumber>
                           </StatItem>
                         </TeamStatsInner>
                       </TeamStats>
@@ -101,9 +110,14 @@ class ShowTeamsPage extends React.Component<AllProps> {
                 {selected.players && (
                   <TableWrapper>
                     <h2>Current players</h2>
-                    <DataTable columns={['Name', 'Games', 'Winrate']} widths={['auto', '', '']}>
+                    <DataTable
+                      columns={["Name", "Games", "Winrate"]}
+                      widths={["auto", "", ""]}
+                    >
                       {selected.players
-                        .filter(player => player.is_current_team_member === true)
+                        .filter(
+                          player => player.is_current_team_member === true
+                        )
                         .map(player => (
                           <tr key={player.account_id}>
                             <PlayerDetail>
@@ -125,7 +139,7 @@ class ShowTeamsPage extends React.Component<AllProps> {
           </Wrapper>
         </Container>
       </Page>
-    )
+    );
   }
 }
 
@@ -136,35 +150,37 @@ const mapStateToProps = ({ teams }: ApplicationState) => ({
   loading: teams.loading,
   errors: teams.errors,
   selected: teams.selected
-})
+});
 
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
 // You can access these via `this.props`.
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   selectTeam: (team_id: string) => dispatch(selectTeam(team_id)),
   clearSelected: () => dispatch(clearSelected())
-})
+});
 
 // Now let's connect our component!
 // With redux v4's improved typings, we can finally omit generics here.
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ShowTeamsPage)
+)(ShowTeamsPage);
 
-const Wrapper = styled('div')`
+const Wrapper = styled("div")`
   position: relative;
-`
+`;
 
-const TeamInfobox = styled('div')`
+const TeamInfobox = styled("div")`
   position: relative;
-  background: ${props => transparentize(0.1, props.theme.colors.black)};
+  background: ${(props: { theme: { colors: { black: string } } }) =>
+    transparentize(0.1, props.theme.colors.black)};
   overflow: hidden;
   border-radius: 8px;
-  color: ${props => darken(0.25, props.theme.colors.white)};
-`
+  color: ${(props: { theme: { colors: { white: string } } }) =>
+    darken(0.25, props.theme.colors.white)};
+`;
 
-const TeamInfoboxInner = styled('div')`
+const TeamInfoboxInner = styled("div")`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,18 +189,20 @@ const TeamInfoboxInner = styled('div')`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 125px inset;
   z-index: 2;
 
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
+      props.theme.breakpoints.lg}) {
     flex-direction: row;
   }
-`
+`;
 
-const TeamLogo = styled('img')`
+const TeamLogo = styled("img")`
   display: block;
   flex-shrink: 0;
   width: 180px;
   height: 128px;
   padding: 1rem;
-  background-color: ${props => transparentize(0.25, props.theme.colors.tableOdd)};
+  background-color: ${(props: { theme: { colors: { tableOdd: string } } }) =>
+    transparentize(0.25, props.theme.colors.tableOdd)};
   box-shadow: rgba(0, 0, 0, 0.3) 0px 12px 32px;
   object-fit: contain;
   border-radius: 16px;
@@ -192,26 +210,28 @@ const TeamLogo = styled('img')`
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.3);
   border-image: initial;
-`
+`;
 
-const TeamInfoboxHeading = styled('div')`
+const TeamInfoboxHeading = styled("div")`
   flex: 1 1 100%;
   margin: 1.5rem 0 0;
   text-align: center;
 
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
+      props.theme.breakpoints.lg}) {
     margin: 0 1.5rem;
     text-align: left;
   }
-`
+`;
 
-const TeamName = styled('h1')`
+const TeamName = styled("h1")`
   margin: 0;
-  color: ${props => props.theme.colors.white};
+  color: ${(props: { theme: { colors: { white: any } } }) =>
+    props.theme.colors.white};
   font-weight: 500;
-`
+`;
 
-const TeamStats = styled('div')`
+const TeamStats = styled("div")`
   display: block;
   max-width: 340px;
   margin: 1.5rem 0 0;
@@ -219,71 +239,68 @@ const TeamStats = styled('div')`
   border-radius: 8px;
   padding: 12px;
 
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
+      props.theme.breakpoints.lg}) {
     margin: 0;
     flex: 1 0 340px;
   }
-`
+`;
 
-const TeamStatsInner = styled('div')`
+const TeamStatsInner = styled("div")`
   display: flex;
-`
+`;
 
-const StatItem = styled('div')`
+const StatItem = styled("div")`
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1 1 0;
   padding: 0 1rem;
   font-size: 0.8rem;
-`
+`;
 
-const StatHeading = styled('h4')`
+const StatHeading = styled("h4")`
   margin: 0;
   margin-bottom: 0.2rem;
   font-size: 1rem;
-`
+`;
 
 interface StatNumberProps {
-  attr?: 'win' | 'loss'
+  attr?: "win" | "loss";
 }
 
-const StatNumber = styled('p')`
+const StatNumber = styled("p")`
   margin: 0;
   font-size: 1.5rem;
-  color: ${(props: Themed<StatNumberProps, Theme>) =>
-    props.attr
-      ? props.attr === 'win'
-        ? props.theme.colors.attrs.agi
-        : props.theme.colors.attrs.str
-      : undefined};
-`
+`;
 
-const TableWrapper = styled('div')`
+const TableWrapper = styled("div")`
   position: relative;
-  max-width: ${props => props.theme.widths.md};
+  max-width: ${(props: { theme: { widths: { md: any } } }) =>
+    props.theme.widths.md};
   margin: 0 auto;
   margin-top: 3rem;
   min-height: 200px;
-`
+`;
 
-const PlayerDetail = styled('td')`
+const PlayerDetail = styled("td")`
   display: flex;
   flex-direction: row;
   align-items: center;
-`
+`;
 
-const PlayerIcon = styled('img')`
+const PlayerIcon = styled("img")`
   width: 32px;
   height: 32px;
-`
+`;
 
-const PlayerName = styled('div')`
+const PlayerName = styled("div")`
   flex: 1 1 auto;
   height: 100%;
   margin-left: 1rem;
 
   a {
-    color: ${props => props.theme.colors.brand};
+    color: ${(props: { theme: { colors: { brand: any } } }) =>
+      props.theme.colors.brand};
   }
-`
+`;

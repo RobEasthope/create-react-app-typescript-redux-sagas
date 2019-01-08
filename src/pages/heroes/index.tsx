@@ -1,19 +1,19 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-import styled from "../../utils/styled";
-import Page from "../../components/layout/Page";
-import Container from "../../components/layout/Container";
-import DataTable from "../../components/layout/DataTable";
 import LoadingOverlay from "../../components/data/LoadingOverlay";
 import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
 import LoadingSpinner from "../../components/data/LoadingSpinner";
+import Container from "../../components/layout/Container";
+import DataTable from "../../components/layout/DataTable";
+import Page from "../../components/layout/Page";
+import styled from "../../utils/styled";
 
-import { ApplicationState, ConnectedReduxProps } from "../../store";
-import { Hero } from "../../store/heroes/types";
-import { fetchRequest } from "../../store/heroes/actions";
 import { Dispatch } from "redux";
+import { ApplicationState, ConnectedReduxProps } from "../../store";
+import { fetchRequest } from "../../store/heroes/actions";
+import { Hero } from "../../store/heroes/types";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
@@ -118,7 +118,8 @@ export default connect(
 
 const TableWrapper = styled("div")`
   position: relative;
-  max-width: ${props => props.theme.widths.md};
+  max-width: ${(props: { theme: { widths: { md: any } } }) =>
+    props.theme.widths.md};
   margin: 0 auto;
   min-height: 200px;
 `;
@@ -140,7 +141,8 @@ const HeroName = styled("div")`
   margin-left: 1rem;
 
   a {
-    color: ${props => props.theme.colors.brand};
+    color: ${(props: { theme: { colors: { brand: any } } }) =>
+      props.theme.colors.brand};
   }
 `;
 

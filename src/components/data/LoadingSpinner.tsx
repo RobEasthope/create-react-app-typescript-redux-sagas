@@ -38,7 +38,8 @@ const Spinner = styled("div")`
 
   & .cube1,
   & .cube2 {
-    background-color: ${props => props.theme.colors.brand};
+    background-color: ${(props: { theme: { colors: { brand: any } } }) =>
+      props.theme.colors.brand};
     width: 15px;
     height: 15px;
     position: absolute;

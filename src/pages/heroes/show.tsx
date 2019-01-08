@@ -2,19 +2,19 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { RouteComponentProps } from "react-router";
 
-import Page from "../../components/layout/Page";
 import Container from "../../components/layout/Container";
+import Page from "../../components/layout/Page";
 
-import { ApplicationState, ConnectedReduxProps } from "../../store";
-import { Hero } from "../../store/heroes/types";
-import { fetchRequest } from "../../store/heroes/actions";
-import styled, { Theme } from "../../utils/styled";
-import LoadingOverlay from "../../components/data/LoadingOverlay";
-import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
-import LoadingSpinner from "../../components/data/LoadingSpinner";
 import { darken } from "polished";
 import { Themed } from "react-emotion";
 import { Dispatch } from "redux";
+import LoadingOverlay from "../../components/data/LoadingOverlay";
+import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
+import LoadingSpinner from "../../components/data/LoadingSpinner";
+import { ApplicationState, ConnectedReduxProps } from "../../store";
+import { fetchRequest } from "../../store/heroes/actions";
+import { Hero } from "../../store/heroes/types";
+import styled, { Theme } from "../../utils/styled";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
@@ -155,7 +155,8 @@ const HeroInfobox = styled("div")`
   background: rgba(0, 0, 0, 0.9);
   overflow: hidden;
   border-radius: 8px;
-  color: ${props => darken(0.25, props.theme.colors.white)};
+  color: ${(props: { theme: { colors: { white: string } } }) =>
+    darken(0.25, props.theme.colors.white)};
 `;
 
 const HeroInfoboxBlurBackground = styled("img")`
@@ -180,7 +181,8 @@ const HeroInfoboxInner = styled("div")`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 125px inset;
   z-index: 2;
 
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
+      props.theme.breakpoints.lg}) {
     flex-direction: row;
   }
 `;
@@ -204,7 +206,8 @@ const HeroInfoboxHeading = styled("div")`
   margin: 1.5rem 0 0;
   text-align: center;
 
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
+      props.theme.breakpoints.lg}) {
     margin: 0 1.5rem;
     text-align: left;
   }
@@ -212,19 +215,22 @@ const HeroInfoboxHeading = styled("div")`
 
 const HeroName = styled("h1")`
   margin: 0;
-  color: ${props => props.theme.colors.white};
+  color: ${(props: { theme: { colors: { white: any } } }) =>
+    props.theme.colors.white};
   font-weight: 500;
 `;
 
 const HeroDetails = styled("p")`
   margin: 0.5rem 0 0;
-  color: ${props => props.theme.colors.white};
+  color: ${(props: { theme: { colors: { white: any } } }) =>
+    props.theme.colors.white};
   font-size: 0.8rem;
   letter-spacing: 1px;
   text-transform: uppercase;
 
   & span {
-    color: ${props => darken(0.25, props.theme.colors.white)};
+    color: ${(props: { theme: { colors: { white: string } } }) =>
+      darken(0.25, props.theme.colors.white)};
   }
 `;
 
@@ -236,7 +242,8 @@ const HeroStats = styled("div")`
   border-radius: 8px;
   padding: 12px;
 
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${(props: { theme: { breakpoints: { lg: any } } }) =>
+      props.theme.breakpoints.lg}) {
     margin: 0;
     flex: 1 0 340px;
   }
@@ -257,8 +264,6 @@ const StatAttribute = styled("div")`
   flex: 1 1 0;
   padding: 0 1rem;
   font-size: 0.8rem;
-  color: ${(props: Themed<StatAttributeProps, Theme>) =>
-    props.isPrimaryAttr && props.theme.colors.attrs[props.attr]};
 `;
 
 interface BulletProps {
@@ -271,6 +276,4 @@ const Bullet = styled("div")`
   width: 0.5rem;
   margin-right: 8px;
   border-radius: 50%;
-  background-color: ${(props: Themed<BulletProps, Theme>) =>
-    props.theme.colors.attrs[props.attr]};
 `;

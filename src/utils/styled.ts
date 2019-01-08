@@ -45,4 +45,4 @@ export interface Theme {
   };
 }
 
-export default styled as CreateStyled<Theme>;
+export default styled;
