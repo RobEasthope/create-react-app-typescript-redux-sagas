@@ -134,8 +134,7 @@ const HeroInfobox = styled.div`
   background: rgba(0, 0, 0, 0.9);
   overflow: hidden;
   border-radius: 8px;
-  color: 
-    darken(0.25, white)};
+  color: darken(0.25, white);
 `;
 
 const HeroInfoboxBlurBackground = styled.img`
@@ -216,7 +215,7 @@ const HeroStats = styled.div`
   border-radius: 8px;
   padding: 12px;
 
-  @media (min-width: $992px) {
+  @media (min-width: 992px) {
     margin: 0;
     flex: 1 0 340px;
   }
