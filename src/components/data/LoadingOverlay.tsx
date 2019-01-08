@@ -8,7 +8,8 @@ const LoadingOverlay = styled("div")`
   left: 0;
   right: 0;
   z-index: 10;
-  background: ${props => transparentize(0.25, props.theme.colors.background)};
+  background: ${(props: { theme: { colors: { background: string } } }) =>
+    transparentize(0.25, props.theme.colors.background)};
 `;
 
 export default LoadingOverlay;
