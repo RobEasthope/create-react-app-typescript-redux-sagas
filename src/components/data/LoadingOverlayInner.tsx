@@ -1,4 +1,4 @@
-import styled from "../../utils/styled";
+import styled from "styled-components";
 
 const LoadingOverlayInner = styled("div")`
   display: flex;

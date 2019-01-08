@@ -8,7 +8,7 @@ import LoadingSpinner from "../../components/data/LoadingSpinner";
 import Container from "../../components/layout/Container";
 import DataTable from "../../components/layout/DataTable";
 import Page from "../../components/layout/Page";
-import styled from "../../utils/styled";
+import styled from "styled-components";
 
 import { Dispatch } from "redux";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
