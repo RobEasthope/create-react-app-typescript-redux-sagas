@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Root from "./components/layout/Root";
 import HeroesPage from "./pages/heroes";
-import IndexPage from "./pages/index";
+import IndexPage from "./pages/Home/Home";
 import TeamsPage from "./pages/teams";
 
 // If your app is big + you have routes with a lot of components, you should consider

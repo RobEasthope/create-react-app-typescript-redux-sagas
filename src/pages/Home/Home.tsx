@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import Container from "../components/layout/Container";
-import Page from "../components/layout/Page";
+import Container from "../../components/layout/Container";
+import Page from "../../components/layout/Page";
 
 export default () => (
   <Page>
