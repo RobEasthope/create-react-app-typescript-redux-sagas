@@ -13,13 +13,13 @@ import Page from "../../components/layout/Page";
 
 import { Dispatch } from "redux";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
-import { fetchRequest } from "../../store/teams/actions";
-import { Team } from "../../store/teams/types";
+import { fetchRequest } from "../../store/repos/actions";
+import { Repo } from "../../store/repos/types";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
   loading: boolean;
-  data: Team[];
+  data: Repo[];
   errors?: string;
 }
 
@@ -31,7 +31,7 @@ interface PropsFromDispatch {
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps;
 
-class TeamsIndexPage extends React.Component<AllProps> {
+class ReposIndexPage extends React.Component<AllProps> {
   public componentDidMount() {
     const { data } = this.props;
 
@@ -66,26 +66,26 @@ class TeamsIndexPage extends React.Component<AllProps> {
 
     return (
       <DataTable
-        columns={["Rank", "Team", "Rating", "Wins / Losses", "Last Match"]}
+        columns={["Rank", "Repo", "Rating", "Wins / Losses", "Last Match"]}
         widths={["", "auto", "", "", ""]}
       >
-        {/* {data.slice(0, 20).map((team, i) => {
-          const lastMatch = moment(team.last_match_time * 1000);
+        {/* {data.slice(0, 20).map((repo, i) => {
+          const lastMatch = moment(repo.last_match_time * 1000);
 
           return (
-            <tr key={team.team_id}>
+            <tr key={repo.repo_id}>
               <td>{i + 1}</td>
-              <TeamDetail>
-                {team.logo_url && (
-                  <TeamLogo src={team.logo_url} alt={team.tag} />
+              <RepoDetail>
+                {repo.logo_url && (
+                  <RepoLogo src={repo.logo_url} alt={repo.tag} />
                 )}
-                <TeamName>
-                  <Link to={`/teams/${team.team_id}`}>{team.name}</Link>
-                </TeamName>
-              </TeamDetail>
-              <td>{team.rating.toFixed(0)}</td>
+                <RepoName>
+                  <Link to={`/repos/${repo.repo_id}`}>{repo.name}</Link>
+                </RepoName>
+              </RepoDetail>
+              <td>{repo.rating.toFixed(0)}</td>
               <td>
-                {team.wins || 0} / {team.losses || 0}
+                {repo.wins || 0} / {repo.losses || 0}
               </td>
               <td>
                 <time
@@ -106,10 +106,10 @@ class TeamsIndexPage extends React.Component<AllProps> {
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
-const mapStateToProps = ({ teams }: ApplicationState) => ({
-  loading: teams.loading,
-  errors: teams.errors,
-  data: teams.data
+const mapStateToProps = ({ repos }: ApplicationState) => ({
+  loading: repos.loading,
+  errors: repos.errors,
+  data: repos.data
 });
 
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
@@ -123,7 +123,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TeamsIndexPage);
+)(ReposIndexPage);
 
 const TableWrapper = styled.div`
   position: relative;
@@ -132,19 +132,19 @@ const TableWrapper = styled.div`
   min-height: 200px;
 `;
 
-const TeamDetail = styled.td`
+const RepoDetail = styled.td`
   display: flex;
   flex-direction: row;
   align-items: center;
   min-height: 66px;
 `;
 
-const TeamLogo = styled.img`
+const RepoLogo = styled.img`
   width: 50px;
   height: 50px;
 `;
 
-const TeamName = styled.div`
+const RepoName = styled.div`
   flex: 1 1 auto;
   height: 100%;
   margin-left: 1rem;

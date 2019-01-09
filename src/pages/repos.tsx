@@ -2,8 +2,8 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Route, RouteComponentProps, Switch } from "react-router-dom";
 
-import TeamsIndexPage from "./teams/index";
-import ShowTeamsPage from "./teams/show";
+import ReposIndexPage from "./repos/index";
+import ShowReposPage from "./repos/show";
 
 import { ApplicationState, ConnectedReduxProps } from "../store";
 
@@ -16,7 +16,7 @@ interface PropsFromState {
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState & RouteComponentProps<{}> & ConnectedReduxProps;
 
-class TeamsPage extends React.Component<AllProps> {
+class ReposPage extends React.Component<AllProps> {
   public render() {
     const { match } = this.props;
 
@@ -25,9 +25,9 @@ class TeamsPage extends React.Component<AllProps> {
         <Route
           exact={true}
           path={match.path + "/"}
-          component={TeamsIndexPage}
+          component={ReposIndexPage}
         />
-        <Route path={match.path + "/:id"} component={ShowTeamsPage} />
+        <Route path={match.path + "/:id"} component={ShowReposPage} />
       </Switch>
     );
   }
@@ -36,11 +36,11 @@ class TeamsPage extends React.Component<AllProps> {
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
-const mapStateToProps = ({ teams }: ApplicationState) => ({
-  loading: teams.loading,
-  errors: teams.errors
+const mapStateToProps = ({ repos }: ApplicationState) => ({
+  loading: repos.loading,
+  errors: repos.errors
 });
 
 // Now let's connect our component!
 // With redux v4's improved typings, we can finally omit generics here.
-export default connect(mapStateToProps)(TeamsPage);
+export default connect(mapStateToProps)(ReposPage);

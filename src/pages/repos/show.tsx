@@ -14,18 +14,18 @@ import { Dispatch } from "redux";
 import { darken, transparentize } from "../../../node_modules/polished";
 import DataTable from "../../components/layout/DataTable";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
-import { clearSelected, selectTeam } from "../../store/teams/actions";
-import { TeamSelectedPayload } from "../../store/teams/types";
+import { clearSelected, selectRepo } from "../../store/repos/actions";
+import { RepoSelectedPayload } from "../../store/repos/types";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
   loading: boolean;
-  selected?: TeamSelectedPayload;
+  selected?: RepoSelectedPayload;
   errors?: string;
 }
 
 interface PropsFromDispatch {
-  selectTeam: typeof selectTeam;
+  selectRepo: typeof selectRepo;
   clearSelected: typeof clearSelected;
 }
 
@@ -42,15 +42,15 @@ type AllProps = PropsFromState &
 const formatPlayerIcon = (account_id: number) =>
   `https://www.opendota.com/assets/images/dota2/players/${account_id}.png`;
 
-class ShowTeamsPage extends React.Component<AllProps> {
+class ShowReposPage extends React.Component<AllProps> {
   public componentDidMount() {
     const { match } = this.props;
 
-    this.props.selectTeam(match.params.id);
+    this.props.selectRepo(match.params.id);
   }
 
   public componentWillUnmount() {
-    // clear selected team state before leaving the page
+    // clear selected repo state before leaving the page
     this.props.clearSelected();
   }
 
@@ -71,19 +71,19 @@ class ShowTeamsPage extends React.Component<AllProps> {
             {selected && (
               <React.Fragment>
                 {selected.detail && (
-                  <TeamInfobox>
-                    <TeamInfoboxInner>
+                  <RepoInfobox>
+                    <RepoInfoboxInner>
                       {selected.detail.logo_url && (
-                        <TeamLogo
+                        <RepoLogo
                           src={selected.detail.logo_url}
                           alt={selected.detail.tag}
                         />
                       )}
-                      <TeamInfoboxHeading>
-                        <TeamName>{selected.detail.name}</TeamName>
-                      </TeamInfoboxHeading>
-                      <TeamStats>
-                        <TeamStatsInner>
+                      <RepoInfoboxHeading>
+                        <RepoName>{selected.detail.name}</RepoName>
+                      </RepoInfoboxHeading>
+                      <RepoStats>
+                        <RepoStatsInner>
                           <StatItem>
                             <StatHeading>Wins</StatHeading>
                           </StatItem>
@@ -93,10 +93,10 @@ class ShowTeamsPage extends React.Component<AllProps> {
                           <StatItem>
                             <StatHeading>Rating</StatHeading>
                           </StatItem>
-                        </TeamStatsInner>
-                      </TeamStats>
-                    </TeamInfoboxInner>
-                  </TeamInfobox>
+                        </RepoStatsInner>
+                      </RepoStats>
+                    </RepoInfoboxInner>
+                  </RepoInfobox>
                 )}
                 {selected.players && (
                   <TableWrapper>
@@ -107,7 +107,7 @@ class ShowTeamsPage extends React.Component<AllProps> {
                     >
                       {selected.players
                         .filter(
-                          player => player.is_current_team_member === true
+                          player => player.is_current_repo_member === true
                         )
                         .map(player => (
                           <tr key={player.account_id}>
@@ -137,16 +137,16 @@ class ShowTeamsPage extends React.Component<AllProps> {
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
-const mapStateToProps = ({ teams }: ApplicationState) => ({
-  loading: teams.loading,
-  errors: teams.errors,
-  selected: teams.selected
+const mapStateToProps = ({ repos }: ApplicationState) => ({
+  loading: repos.loading,
+  errors: repos.errors,
+  selected: repos.selected
 });
 
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
 // You can access these via `this.props`.
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  selectTeam: (team_id: string) => dispatch(selectTeam(team_id)),
+  selectRepo: (repo_id: string) => dispatch(selectRepo(repo_id)),
   clearSelected: () => dispatch(clearSelected())
 });
 
@@ -155,13 +155,13 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ShowTeamsPage);
+)(ShowReposPage);
 
 const Wrapper = styled.div`
   position: relative;
 `;
 
-const TeamInfobox = styled.div`
+const RepoInfobox = styled.div`
   position: relative;
   background: transparentize(0.1, black);
   overflow: hidden;
@@ -169,7 +169,7 @@ const TeamInfobox = styled.div`
   color: darken(0.25, white);
 `;
 
-const TeamInfoboxInner = styled.div`
+const RepoInfoboxInner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -183,7 +183,7 @@ const TeamInfoboxInner = styled.div`
   }
 `;
 
-const TeamLogo = styled.img`
+const RepoLogo = styled.img`
   display: block;
   flex-shrink: 0;
   width: 180px;
@@ -199,7 +199,7 @@ const TeamLogo = styled.img`
   border-image: initial;
 `;
 
-const TeamInfoboxHeading = styled.div`
+const RepoInfoboxHeading = styled.div`
   flex: 1 1 100%;
   margin: 1.5rem 0 0;
   text-align: center;
@@ -210,13 +210,13 @@ const TeamInfoboxHeading = styled.div`
   }
 `;
 
-const TeamName = styled.h1`
+const RepoName = styled.h1`
   margin: 0;
   color: white;
   font-weight: 500;
 `;
 
-const TeamStats = styled.div`
+const RepoStats = styled.div`
   display: block;
   max-width: 340px;
   margin: 1.5rem 0 0;
@@ -230,7 +230,7 @@ const TeamStats = styled.div`
   }
 `;
 
-const TeamStatsInner = styled.div`
+const RepoStatsInner = styled.div`
   display: flex;
 `;
 
