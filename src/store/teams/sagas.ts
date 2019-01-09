@@ -10,12 +10,12 @@ import callApi from "../../utils/callApi";
 import { fetchError, fetchSuccess, selectTeam, teamSelected } from "./actions";
 import { TeamsActionTypes } from "./types";
 
-const API_ENDPOINT = "https://api.spacexdata.com/v3";
+const API_ENDPOINT = "https://api.github.com/users";
 
 function* handleFetch() {
   try {
     // To call async functions, use redux-saga's `call()`.
-    const res = yield call(callApi, "get", API_ENDPOINT, "/launches");
+    const res = yield call(callApi, "get", API_ENDPOINT, "/google");
     console.log(API_ENDPOINT);
 
     if (res.error) {
