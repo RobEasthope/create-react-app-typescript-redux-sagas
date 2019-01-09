@@ -69,7 +69,7 @@ class TeamsIndexPage extends React.Component<AllProps> {
         columns={["Rank", "Team", "Rating", "Wins / Losses", "Last Match"]}
         widths={["", "auto", "", "", ""]}
       >
-        {data.slice(0, 20).map((team, i) => {
+        {/* {data.slice(0, 20).map((team, i) => {
           const lastMatch = moment(team.last_match_time * 1000);
 
           return (
@@ -97,7 +97,7 @@ class TeamsIndexPage extends React.Component<AllProps> {
               </td>
             </tr>
           );
-        })}
+        })} */}
       </DataTable>
     );
   }
