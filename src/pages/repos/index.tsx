@@ -45,17 +45,15 @@ class ReposIndexPage extends React.Component<AllProps> {
     return (
       <Page>
         <Container>
-          <TableWrapper>
-            {loading && (
-              <LoadingOverlay>
-                <LoadingOverlayInner>
-                  <LoadingSpinner />
-                </LoadingOverlayInner>
-              </LoadingOverlay>
-            )}
+          {loading && (
+            <LoadingOverlay>
+              <LoadingOverlayInner>
+                <LoadingSpinner />
+              </LoadingOverlayInner>
+            </LoadingOverlay>
+          )}
 
-            {this.renderRepoInfo(this.props.data)}
-          </TableWrapper>
+          {this.renderRepoInfo(this.props.data)}
         </Container>
       </Page>
     );
@@ -82,42 +80,6 @@ class ReposIndexPage extends React.Component<AllProps> {
       );
     }
   };
-
-  private renderData() {
-    const { data } = this.props;
-
-    return {
-      /* {data.slice(0, 20).map((repo, i) => {
-          const lastMatch = moment(repo.last_match_time * 1000);
-
-          return (
-            <tr key={repo.repo_id}>
-              <td>{i + 1}</td>
-              <RepoDetail>
-                {repo.logo_url && (
-                  <RepoLogo src={repo.logo_url} alt={repo.tag} />
-                )}
-                <RepoName>
-                  <Link to={`/repos/${repo.repo_id}`}>{repo.name}</Link>
-                </RepoName>
-              </RepoDetail>
-              <td>{repo.rating.toFixed(0)}</td>
-              <td>
-                {repo.wins || 0} / {repo.losses || 0}
-              </td>
-              <td>
-                <time
-                  dateTime={lastMatch.toISOString()}
-                  title={lastMatch.format("LLLL")}
-                >
-                  {lastMatch.fromNow()}
-                </time>
-              </td>
-            </tr>
-          );
-        })} */
-    };
-  }
 }
 
 // It's usually good practice to only include one context at a time in a connected component.
@@ -141,32 +103,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ReposIndexPage);
-
-const TableWrapper = styled.div`
-  position: relative;
-  max-width: 720px;
-  margin: 0 auto;
-  min-height: 200px;
-`;
-
-const RepoDetail = styled.td`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  min-height: 66px;
-`;
-
-const RepoLogo = styled.img`
-  width: 50px;
-  height: 50px;
-`;
-
-const RepoName = styled.div`
-  flex: 1 1 auto;
-  height: 100%;
-  margin-left: 1rem;
-
-  a {
-    color: red;
-  }
-`;
