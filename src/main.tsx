@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Provider, connect } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
-import { Store } from "redux";
 import { History } from "history";
+import * as React from "react";
+import { connect, Provider } from "react-redux";
+import { Store } from "redux";
 import { ThemeProvider } from "styled-components";
 
 import Routes from "./routes";
@@ -11,8 +11,8 @@ import { ThemeColors } from "./store/layout";
 // import * as themes from "./styles/theme";
 import lightTheme from "./styles/theme/light";
 
-import Normalize from "./styles/normalize";
 import GlobalStyles from "./styles/GlobalStyles";
+import Normalize from "./styles/normalize";
 
 // Separate props from state and props from dispatch to their own interfaces.
 interface PropsFromState {

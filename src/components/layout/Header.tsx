@@ -1,8 +1,8 @@
 import { css } from "emotion";
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-import LayoutContainer from "../../containers/LayoutContainer";
 import styled from "styled-components";
+import LayoutContainer from "../../containers/LayoutContainer";
 import Container from "./Container";
 
 interface HeaderProps {

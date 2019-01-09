@@ -1,8 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { RouteComponentProps } from "react-router";
-import Theme from "../../utils/styled";
 import styled from "styled-components";
+import Theme from "../../utils/styled";
 
 import LoadingOverlay from "../../components/data/LoadingOverlay";
 import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
@@ -10,9 +10,9 @@ import LoadingSpinner from "../../components/data/LoadingSpinner";
 import Container from "../../components/layout/Container";
 import Page from "../../components/layout/Page";
 
+import { Themed } from "react-emotion";
 import { Dispatch } from "redux";
 import { darken, transparentize } from "../../../node_modules/polished";
-import { Themed } from "react-emotion";
 import DataTable from "../../components/layout/DataTable";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
 import { clearSelected, selectTeam } from "../../store/teams/actions";

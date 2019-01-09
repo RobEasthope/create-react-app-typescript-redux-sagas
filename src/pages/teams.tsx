@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { RouteComponentProps, Route, Switch } from "react-router-dom";
+import { Route, RouteComponentProps, Switch } from "react-router-dom";
 
 import TeamsIndexPage from "./teams/index";
 import ShowTeamsPage from "./teams/show";
@@ -22,7 +22,11 @@ class TeamsPage extends React.Component<AllProps> {
 
     return (
       <Switch>
-        <Route exact path={match.path + "/"} component={TeamsIndexPage} />
+        <Route
+          exact={true}
+          path={match.path + "/"}
+          component={TeamsIndexPage}
+        />
         <Route path={match.path + "/:id"} component={ShowTeamsPage} />
       </Switch>
     );

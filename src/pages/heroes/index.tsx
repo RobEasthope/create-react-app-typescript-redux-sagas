@@ -2,13 +2,13 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import styled from "styled-components";
 import LoadingOverlay from "../../components/data/LoadingOverlay";
 import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
 import LoadingSpinner from "../../components/data/LoadingSpinner";
 import Container from "../../components/layout/Container";
 import DataTable from "../../components/layout/DataTable";
 import Page from "../../components/layout/Page";
-import styled from "styled-components";
 
 import { Dispatch } from "redux";
 import { ApplicationState, ConnectedReduxProps } from "../../store";

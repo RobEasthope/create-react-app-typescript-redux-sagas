@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Root from "./components/layout/Root";
 import Header from "./components/layout/Header";
-import IndexPage from "./pages/index";
+import Root from "./components/layout/Root";
 import HeroesPage from "./pages/heroes";
+import IndexPage from "./pages/index";
 import TeamsPage from "./pages/teams";
 
 // If your app is big + you have routes with a lot of components, you should consider
@@ -20,7 +20,7 @@ const Routes: React.SFC = () => (
   <Root>
     <Header title="Example App" />
     <Switch>
-      <Route exact path="/" component={IndexPage} />
+      <Route exact={true} path="/" component={IndexPage} />
       <Route path="/heroes" component={HeroesPage} />
       <Route path="/teams" component={TeamsPage} />
       <Route component={() => <div>Not Found</div>} />

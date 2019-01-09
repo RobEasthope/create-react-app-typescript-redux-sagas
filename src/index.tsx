@@ -4,15 +4,15 @@
 // `index.js` file as an entry point. However, we can enable TS typechecking by adding the
 // `@ts-check` comment at the beginning of our file.
 
+import { ConnectedRouter } from "connected-react-router";
+import { createHashHistory } from "history";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { createHashHistory } from "history";
-import { Provider, connect } from "react-redux";
-import { ConnectedRouter } from "connected-react-router";
+import { connect, Provider } from "react-redux";
 
+import configureStore from "./configureStore";
 import Main from "./main";
 import * as serviceWorker from "./serviceWorker";
-import configureStore from "./configureStore";
 
 import "typeface-ibm-plex-sans";
 
