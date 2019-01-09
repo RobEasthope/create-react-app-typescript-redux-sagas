@@ -1,22 +1,23 @@
+import { lighten } from "polished";
 import { Theme } from "../../utils/styled";
 import brandColors from "../colors/brandColors";
-import { lighten } from "polished";
 
 const lightTheme: Theme = {
   colors: {
-    background: brandColors.gray75,
-    body: brandColors.gray10,
-    headings: brandColors.gray5,
-    black: brandColors.black,
-    white: brandColors.white,
-    borders: lighten(0.05, brandColors.gray75),
-    tableOdd: lighten(0.025, brandColors.gray75),
-    brand: brandColors.red,
     attrs: {
       str: "#f44336",
       agi: "#39d402",
       int: "#01a9f4"
-    }
+    },
+    background: brandColors.gray75,
+    black: brandColors.black,
+    body: brandColors.gray10,
+    borders: lighten(0.05, brandColors.gray75),
+    brand: brandColors.red,
+    headings: brandColors.gray5,
+    tableOdd: lighten(0.025, brandColors.gray75),
+
+    white: brandColors.white
   },
   fonts: {
     headings:
