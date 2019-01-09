@@ -26,9 +26,6 @@ export interface TeamSelectedPayload {
   players: Player[];
 }
 
-// Use `const enum`s for better autocompletion of action type names. These will
-// be compiled away leaving only the final value in your compiled code.
-//
 // Define however naming conventions you'd like for your action types, but
 // personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
 // of Redux's `@@INIT` action.
@@ -45,7 +42,7 @@ export enum TeamsActionTypes {
 // https://github.com/piotrwitek/react-redux-typescript-guide#state-with-type-level-immutability
 export interface TeamsState {
   readonly loading: boolean;
-  readonly data: Team[];
+  readonly data: any;
   readonly selected?: TeamSelectedPayload;
   readonly errors?: string;
 }
