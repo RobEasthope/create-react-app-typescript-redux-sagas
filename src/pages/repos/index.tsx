@@ -53,12 +53,23 @@ class ReposIndexPage extends React.Component<AllProps> {
                 </LoadingOverlayInner>
               </LoadingOverlay>
             )}
-            {/* {this.renderData()} */}
+
+            {this.renderRepoInfo(this.props.data)}
           </TableWrapper>
         </Container>
       </Page>
     );
   }
+
+  private renderRepoInfo = data => {
+    if (data.full_name) {
+      return (
+        <div>
+          <h1>{data.full_name}</h1>
+        </div>
+      );
+    }
+  };
 
   private renderData() {
     const { data } = this.props;
