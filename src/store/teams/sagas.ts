@@ -10,12 +10,12 @@ import callApi from "../../utils/callApi";
 import { fetchError, fetchSuccess, selectTeam, teamSelected } from "./actions";
 import { TeamsActionTypes } from "./types";
 
-const API_ENDPOINT = "https://api.github.com/users";
+const API_ENDPOINT = "https://api.github.com/repos/facebook";
 
 function* handleFetch() {
   try {
     // To call async functions, use redux-saga's `call()`.
-    const res = yield call(callApi, "get", API_ENDPOINT, "/google");
+    const res = yield call(callApi, "get", API_ENDPOINT, "/create-react-app");
     console.log(API_ENDPOINT);
 
     if (res.error) {
