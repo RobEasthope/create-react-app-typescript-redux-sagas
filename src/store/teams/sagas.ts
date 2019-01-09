@@ -10,13 +10,13 @@ import callApi from "../../utils/callApi";
 import { fetchError, fetchSuccess, selectTeam, teamSelected } from "./actions";
 import { TeamsActionTypes } from "./types";
 
-const API_ENDPOINT =
-  process.env.REACT_APP_API_ENDPOINT || "https://api.opendota.com";
+const API_ENDPOINT = "https://api.spacexdata.com/v3";
 
 function* handleFetch() {
   try {
     // To call async functions, use redux-saga's `call()`.
-    const res = yield call(callApi, "get", API_ENDPOINT, "/teams");
+    const res = yield call(callApi, "get", API_ENDPOINT, "/launches");
+    console.log(API_ENDPOINT);
 
     if (res.error) {
       yield put(fetchError(res.error));
