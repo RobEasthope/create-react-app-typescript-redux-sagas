@@ -64,11 +64,12 @@ class ReposIndexPage extends React.Component<AllProps> {
       return (
         <div>
           <div>
-            <a href={repo.html_url}>{repo.full_name}</a>
+            Name: <a href={repo.html_url}>{repo.full_name}</a>
           </div>
           <div>Description: {repo.description}</div>
           <div>
-            Owner: <a href={repo.owner.login}>{repo.owner.login}</a>
+            Owner:
+            <a href={repo.organization.html_url}>{repo.organization.login}</a>
           </div>
           <div>
             Homepage: <a href={repo.homepage}>{repo.homepage}</a>
@@ -76,6 +77,7 @@ class ReposIndexPage extends React.Component<AllProps> {
           <div>Stars: {repo.stargazers_count}</div>
           <div>Watchers: {repo.watchers}</div>
           <div>Open issues: {repo.open_issues}</div>
+          <div>License: {repo.license.name}</div>
         </div>
       );
     }
