@@ -8,7 +8,6 @@ import LoadingOverlay from "../../components/data/LoadingOverlay";
 import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
 import LoadingSpinner from "../../components/data/LoadingSpinner";
 import Container from "../../components/layout/Container";
-import DataTable from "../../components/layout/DataTable";
 import Page from "../../components/layout/Page";
 
 import { Dispatch } from "redux";
@@ -64,12 +63,8 @@ class ReposIndexPage extends React.Component<AllProps> {
   private renderData() {
     const { data } = this.props;
 
-    return (
-      <DataTable
-        columns={["Rank", "Repo", "Rating", "Wins / Losses", "Last Match"]}
-        widths={["", "auto", "", "", ""]}
-      >
-        {/* {data.slice(0, 20).map((repo, i) => {
+    return {
+      /* {data.slice(0, 20).map((repo, i) => {
           const lastMatch = moment(repo.last_match_time * 1000);
 
           return (
@@ -97,9 +92,8 @@ class ReposIndexPage extends React.Component<AllProps> {
               </td>
             </tr>
           );
-        })} */}
-      </DataTable>
-    );
+        })} */
+    };
   }
 }
 

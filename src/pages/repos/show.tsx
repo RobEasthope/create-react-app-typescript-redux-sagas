@@ -12,7 +12,6 @@ import Page from "../../components/layout/Page";
 
 import { Dispatch } from "redux";
 import { darken, transparentize } from "../../../node_modules/polished";
-import DataTable from "../../components/layout/DataTable";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
 import { clearSelected, selectRepo } from "../../store/repos/actions";
 import { RepoSelectedPayload } from "../../store/repos/types";
@@ -101,28 +100,21 @@ class ShowReposPage extends React.Component<AllProps> {
                 {selected.players && (
                   <TableWrapper>
                     <h2>Current players</h2>
-                    <DataTable
-                      columns={["Name", "Games", "Winrate"]}
-                      widths={["auto", "", ""]}
-                    >
-                      {selected.players
-                        .filter(
-                          player => player.is_current_repo_member === true
-                        )
-                        .map(player => (
-                          <tr key={player.account_id}>
-                            <PlayerDetail>
-                              <PlayerIcon
-                                src={formatPlayerIcon(player.account_id)}
-                                alt={player.name}
-                              />
-                              <PlayerName>{player.name}</PlayerName>
-                            </PlayerDetail>
-                            <td>{player.games_played}</td>
-                            <td>{player.wins}</td>
-                          </tr>
-                        ))}
-                    </DataTable>
+                    {selected.players
+                      .filter(player => player.is_current_repo_member === true)
+                      .map(player => (
+                        <tr key={player.account_id}>
+                          <PlayerDetail>
+                            <PlayerIcon
+                              src={formatPlayerIcon(player.account_id)}
+                              alt={player.name}
+                            />
+                            <PlayerName>{player.name}</PlayerName>
+                          </PlayerDetail>
+                          <td>{player.games_played}</td>
+                          <td>{player.wins}</td>
+                        </tr>
+                      ))}
                   </TableWrapper>
                 )}
               </React.Fragment>
