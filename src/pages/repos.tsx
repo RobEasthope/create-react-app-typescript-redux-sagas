@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Route, RouteComponentProps, Switch } from "react-router-dom";
 
 import ReposIndexPage from "./repos/index";
-import ShowReposPage from "./repos/show";
 
 import { ApplicationState, ConnectedReduxProps } from "../store";
 
@@ -27,7 +26,6 @@ class ReposPage extends React.Component<AllProps> {
           path={match.path + "/"}
           component={ReposIndexPage}
         />
-        <Route path={match.path + "/:id"} component={ShowReposPage} />
       </Switch>
     );
   }
