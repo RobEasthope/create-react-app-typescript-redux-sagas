@@ -4,5 +4,8 @@
         "tslint-react",
         "tslint-eslint-rules",
         "tslint-config-prettier"
-    ]
+    ],
+    "rules": {
+        "object-literal-sort-keys": false
+    }
 }
