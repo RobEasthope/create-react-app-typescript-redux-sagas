@@ -47,7 +47,9 @@ const Wrapper = styled("header")`
   padding: 0.5rem 1.5rem;
   background-color: red;
   color: white;
-  font-family: "'IBM Plex Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif";
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    Arial, sans-serif;
 `;
 
 const HeaderInner = styled(Container)`
