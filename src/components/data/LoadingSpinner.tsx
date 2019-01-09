@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled, { keyframes } from "styled-components";
+import brandColors from "../../styles/colors/brandColors";
 
 const LoadingSpinner: React.SFC = () => (
   <Spinner>
@@ -37,7 +38,7 @@ const Spinner = styled("div")`
 
   & .cube1,
   & .cube2 {
-    background-color: red;
+    background-color: ${brandColors.red};
     width: 15px;
     height: 15px;
     position: absolute;
