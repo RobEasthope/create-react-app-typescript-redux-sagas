@@ -10,8 +10,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { connect, Provider } from "react-redux";
 
+import App from "./App";
 import configureStore from "./configureStore";
-import Main from "./main";
 import * as serviceWorker from "./serviceWorker";
 
 import "typeface-ibm-plex-sans";
@@ -26,7 +26,7 @@ const store = configureStore(history, initialState);
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Main />
+      <App />
     </ConnectedRouter>
   </Provider>,
   document.getElementById("root")

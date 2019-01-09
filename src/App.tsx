@@ -29,7 +29,7 @@ interface OwnProps {}
 // Create an intersection type of the component props and our Redux props.
 type AllProps = PropsFromState & PropsFromDispatch & OwnProps;
 
-class Main extends React.Component<AllProps> {
+class App extends React.Component<AllProps> {
   public render() {
     const { theme } = this.props;
 
@@ -58,4 +58,4 @@ export default connect<
   PropsFromDispatch,
   OwnProps,
   ApplicationState
->(mapStateToProps)(Main);
+>(mapStateToProps)(App);
