@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 
 import Header from "./components/layout/Header";
 import Root from "./components/layout/Root";
-import HeroesPage from "./pages/heroes";
 import IndexPage from "./pages/Home/Home";
 import TeamsPage from "./pages/teams";
 
@@ -21,7 +20,6 @@ const Routes: React.SFC = () => (
     <Header title="Example App" />
     <Switch>
       <Route exact={true} path="/" component={IndexPage} />
-      <Route path="/heroes" component={HeroesPage} />
       <Route path="/teams" component={TeamsPage} />
       <Route component={() => <div>Not Found</div>} />
     </Switch>
