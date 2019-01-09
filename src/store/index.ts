@@ -5,9 +5,6 @@ import { connectRouter } from "connected-react-router";
 
 import { layoutReducer, LayoutState } from "./layout";
 
-import { heroesReducer } from "./heroes/reducer";
-import heroesSaga from "./heroes/sagas";
-import { HeroesState } from "./heroes/types";
 import { teamsReducer } from "./teams/reducer";
 import teamsSaga from "./teams/sagas";
 import { TeamsState } from "./teams/types";
@@ -16,7 +13,6 @@ import { TeamsState } from "./teams/types";
 export interface ApplicationState {
   router: any;
   layout: LayoutState;
-  heroes: HeroesState;
   teams: TeamsState;
 }
 
@@ -32,7 +28,6 @@ export const createRootReducer = history =>
   combineReducers<ApplicationState>({
     router: connectRouter(history),
     layout: layoutReducer,
-    heroes: heroesReducer,
     teams: teamsReducer
   });
 
@@ -40,5 +35,5 @@ export const createRootReducer = history =>
 // "generator function", which you can read about here:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*
 export function* rootSaga() {
-  yield all([fork(heroesSaga), fork(teamsSaga)]);
+  yield all([fork(teamsSaga)]);
 }
