@@ -1,15 +1,9 @@
-import { ConnectedRouter } from "connected-react-router";
-import { History } from "history";
 import * as React from "react";
-import { connect, Provider } from "react-redux";
-import { Store } from "redux";
-import { ThemeProvider } from "styled-components";
+import { connect } from "react-redux";
 
 import Routes from "./routes";
 import { ApplicationState } from "./store";
 import { ThemeColors } from "./store/layout";
-// import * as themes from "./styles/theme";
-import lightTheme from "./styles/theme/light";
 
 import GlobalStyles from "./styles/GlobalStyles";
 import Normalize from "./styles/normalize";

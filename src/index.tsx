@@ -2,7 +2,7 @@ import { ConnectedRouter } from "connected-react-router";
 import { createBrowserHistory } from "history";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { connect, Provider } from "react-redux";
+import { Provider } from "react-redux";
 
 import App from "./App";
 import configureStore from "./configureStore";
