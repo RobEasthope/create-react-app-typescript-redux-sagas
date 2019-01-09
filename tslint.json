@@ -6,8 +6,10 @@
         "tslint-config-prettier"
     ],
     "rules": {
-        "object-literal-sort-keys": false,
-        "interface-name": false,
+        "object-literal-sort-keys": {
+            "options": "match-declaration-order"
+        },
+        "interface-name": [true, "never-prefix"]
     },
     "linterOptions": {
         "exclude": [
