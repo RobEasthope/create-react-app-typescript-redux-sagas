@@ -65,7 +65,19 @@ class ReposIndexPage extends React.Component<AllProps> {
     if (data.full_name) {
       return (
         <div>
-          <h1>{data.full_name}</h1>
+          <div>
+            <a href={data.html_url}>{data.full_name}</a>
+          </div>
+          <div>Description: {data.description}</div>
+          <div>
+            Owner: <a href={data.owner.login}>{data.owner.login}</a>
+          </div>
+          <div>
+            Homepage: <a href={data.homepage}>{data.homepage}</a>
+          </div>
+          <div>Stars: {data.stargazers_count}</div>
+          <div>Watchers: {data.watchers}</div>
+          <div>Open issues: {data.open_issues}</div>
         </div>
       );
     }
