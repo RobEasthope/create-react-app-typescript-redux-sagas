@@ -54,7 +54,7 @@ class ReposIndexPage extends React.Component<AllProps> {
                 </LoadingOverlayInner>
               </LoadingOverlay>
             )}
-            {this.renderData()}
+            {/* {this.renderData()} */}
           </TableWrapper>
         </Container>
       </Page>
