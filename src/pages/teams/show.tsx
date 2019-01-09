@@ -10,7 +10,6 @@ import LoadingSpinner from "../../components/data/LoadingSpinner";
 import Container from "../../components/layout/Container";
 import Page from "../../components/layout/Page";
 
-import { Themed } from "react-emotion";
 import { Dispatch } from "redux";
 import { darken, transparentize } from "../../../node_modules/polished";
 import DataTable from "../../components/layout/DataTable";

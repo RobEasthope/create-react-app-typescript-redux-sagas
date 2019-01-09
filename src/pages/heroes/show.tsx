@@ -6,7 +6,6 @@ import Container from "../../components/layout/Container";
 import Page from "../../components/layout/Page";
 
 import { darken } from "polished";
-import { Themed } from "react-emotion";
 import { Dispatch } from "redux";
 import styled from "styled-components";
 import LoadingOverlay from "../../components/data/LoadingOverlay";
