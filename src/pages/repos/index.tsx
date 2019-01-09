@@ -61,23 +61,23 @@ class ReposIndexPage extends React.Component<AllProps> {
     );
   }
 
-  private renderRepoInfo = data => {
-    if (data.full_name) {
+  private renderRepoInfo = repo => {
+    if (repo.full_name) {
       return (
         <div>
           <div>
-            <a href={data.html_url}>{data.full_name}</a>
+            <a href={repo.html_url}>{repo.full_name}</a>
           </div>
-          <div>Description: {data.description}</div>
+          <div>Description: {repo.description}</div>
           <div>
-            Owner: <a href={data.owner.login}>{data.owner.login}</a>
+            Owner: <a href={repo.owner.login}>{repo.owner.login}</a>
           </div>
           <div>
-            Homepage: <a href={data.homepage}>{data.homepage}</a>
+            Homepage: <a href={repo.homepage}>{repo.homepage}</a>
           </div>
-          <div>Stars: {data.stargazers_count}</div>
-          <div>Watchers: {data.watchers}</div>
-          <div>Open issues: {data.open_issues}</div>
+          <div>Stars: {repo.stargazers_count}</div>
+          <div>Watchers: {repo.watchers}</div>
+          <div>Open issues: {repo.open_issues}</div>
         </div>
       );
     }
