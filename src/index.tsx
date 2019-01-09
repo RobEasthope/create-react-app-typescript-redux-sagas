@@ -1,5 +1,5 @@
 import { ConnectedRouter } from "connected-react-router";
-import { createHashHistory } from "history";
+import { createBrowserHistory } from "history";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { connect, Provider } from "react-redux";
@@ -10,9 +10,7 @@ import * as serviceWorker from "./serviceWorker";
 
 import "typeface-ibm-plex-sans";
 
-// We use hash history because this example is going to be hosted statically.
-// Normally you would use browser history.
-const history = createHashHistory();
+const history = createBrowserHistory();
 
 const initialState = window.initialReduxState;
 const store = configureStore(history, initialState);
