@@ -2,6 +2,10 @@
 
 This boilerplate example adds:
 
+- Create React App boilerpate with Typscript
+- React Redux
+- Redux Sagas
+- Styled Components
 - React specific and Prettier friendly TSlint rules
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
