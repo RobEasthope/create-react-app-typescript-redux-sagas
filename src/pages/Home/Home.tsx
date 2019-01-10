@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import Container from "../../components/layout/Container";
 import Page from "../../components/layout/Page";
-import brandColors from "../../styles/colors/brandColors";
+import palette from "../../styles/colors/palette";
 
 export default () => (
   <Page>
@@ -28,6 +28,6 @@ const PageContent = styled.article`
   line-height: 1.6;
 
   a {
-    color: ${brandColors.red};
+    color: ${palette.highlight};
   }
 `;

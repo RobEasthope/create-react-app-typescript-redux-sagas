@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import brandColours from "./../../styles/colors/brandColors";
+import brandColours from "./../../styles/colors/palette";
 
 interface RootProps {
   className?: string;

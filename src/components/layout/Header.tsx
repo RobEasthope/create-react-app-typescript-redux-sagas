@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import LayoutContainer from "../../containers/LayoutContainer";
 import Container from "./Container";
-import brandColors from "../../styles/colors/brandColors";
+import palette from "../../styles/colors/palette";
 
 interface HeaderProps {
   title: string;
@@ -43,7 +43,7 @@ export default Header;
 
 const Wrapper = styled("header")`
   padding: 0.5rem 1.5rem;
-  background-color: ${brandColors.red};
+  background-color: ${palette.highlight};
   color: white;
   font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
@@ -97,7 +97,7 @@ const ThemeSwitcherButton = styled.button`
   border: 1px solid #ffffff;
   border-radius: 3px;
   background-color: #ffffff;
-  color: ${brandColors.red};
+  color: ${palette.highlight};
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;

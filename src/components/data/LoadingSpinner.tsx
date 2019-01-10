@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { keyframes } from "styled-components";
-import brandColors from "../../styles/colors/brandColors";
+import palette from "../../styles/colors/palette";
 
 const LoadingSpinner: React.SFC = () => (
   <Spinner>
@@ -38,7 +38,7 @@ const Spinner = styled("div")`
 
   & .cube1,
   & .cube2 {
-    background-color: ${brandColors.red};
+    background-color: ${palette.highlight};
     width: 15px;
     height: 15px;
     position: absolute;
