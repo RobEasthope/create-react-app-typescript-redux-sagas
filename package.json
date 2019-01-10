@@ -1,5 +1,5 @@
 {
-  "name": "create-react-app-typescript-redux",
+  "name": "create-react-app-typescript-redux-sagas",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
