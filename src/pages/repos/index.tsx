@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import LoadingOverlay from "../../components/data/LoadingOverlay";
 import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
-import LoadingSpinner from "../../components/data/LoadingSpinner";
 import Container from "../../components/layout/Container";
 import Page from "../../components/layout/Page";
 
@@ -47,9 +46,7 @@ class ReposIndexPage extends React.Component<AllProps> {
         <Container>
           {loading && (
             <LoadingOverlay>
-              <LoadingOverlayInner>
-                <LoadingSpinner />
-              </LoadingOverlayInner>
+              <LoadingOverlayInner>LOADING</LoadingOverlayInner>
             </LoadingOverlay>
           )}
 
