@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { keyframes } from "styled-components";
-import palette from "../../styles/colors/palette";
+import palette from "../../styles/palette";
 
 const LoadingSpinner: React.SFC = () => (
   <Spinner>

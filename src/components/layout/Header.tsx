@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import LayoutContainer from "../../containers/LayoutContainer";
 import Container from "./Container";
-import palette from "../../styles/colors/palette";
+import palette from "../../styles/palette";
 
 interface HeaderProps {
   title: string;

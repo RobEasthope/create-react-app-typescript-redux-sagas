@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import Container from "../../components/layout/Container";
 import Page from "../../components/layout/Page";
-import palette from "../../styles/colors/palette";
+import palette from "../../styles/palette";
 
 export default () => (
   <Page>
