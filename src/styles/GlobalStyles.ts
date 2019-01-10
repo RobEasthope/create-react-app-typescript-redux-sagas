@@ -7,6 +7,17 @@ export const GlobalStyles = createGlobalStyle`
     overflow-y: scroll;
   }
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 0.5rem;
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
+      Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+      Arial, sans-serif;
+    line-height: 1.25;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
