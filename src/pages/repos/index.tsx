@@ -1,7 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
-
+import { Flex, Text } from "rebass";
 import { Dispatch } from "redux";
+
 import { ApplicationState, ConnectedReduxProps } from "../../store";
 import { fetchRequest } from "../../store/repos/actions";
 import { Repo } from "../../store/repos/types";
@@ -45,23 +46,25 @@ class ReposIndexPage extends React.Component<AllProps> {
   private renderRepoInfo = repo => {
     if (repo.full_name) {
       return (
-        <div>
-          <div>
-            Name: <a href={repo.html_url}>{repo.full_name}</a>
-          </div>
-          <div>Description: {repo.description}</div>
-          <div>
-            Owner:
-            <a href={repo.organization.html_url}>{repo.organization.login}</a>
-          </div>
-          <div>
-            Homepage: <a href={repo.homepage}>{repo.homepage}</a>
-          </div>
-          <div>Stars: {repo.stargazers_count}</div>
-          <div>Watchers: {repo.watchers}</div>
-          <div>Open issues: {repo.open_issues}</div>
-          <div>License: {repo.license.name}</div>
-        </div>
+        <Flex px={4} py={4} alignItems="center">
+          <Text fontSize={[2, 2, 3]}>
+            <div>
+              Name: <a href={repo.html_url}>{repo.full_name}</a>
+            </div>
+            <div>Description: {repo.description}</div>
+            <div>
+              Owner:
+              <a href={repo.organization.html_url}>{repo.organization.login}</a>
+            </div>
+            <div>
+              Homepage: <a href={repo.homepage}>{repo.homepage}</a>
+            </div>
+            <div>Stars: {repo.stargazers_count}</div>
+            <div>Watchers: {repo.watchers}</div>
+            <div>Open issues: {repo.open_issues}</div>
+            <div>License: {repo.license.name}</div>
+          </Text>
+        </Flex>
       );
     }
   };
