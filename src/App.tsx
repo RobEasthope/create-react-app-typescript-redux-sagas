@@ -1,12 +1,12 @@
-import * as React from "react";
-import { connect } from "react-redux";
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { Normalize } from 'styled-normalize';
 
-import Routes from "./routes";
-import { ApplicationState } from "./store";
-import { ThemeColors } from "./store/layout";
+import Routes from './routes';
+import { ApplicationState } from './store';
+import { ThemeColors } from './store/layout';
 
-import GlobalStyles from "./styles/GlobalStyles";
-import Normalize from "./styles/normalize";
+import GlobalStyles from './styles/GlobalStyles';
 
 // Separate props from state and props from dispatch to their own interfaces.
 interface PropsFromState {
@@ -41,7 +41,7 @@ class App extends React.Component<AllProps> {
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
 const mapStateToProps = ({ layout }: ApplicationState) => ({
-  theme: layout.theme
+  theme: layout.theme,
 });
 
 // Normally you wouldn't need any generics here (since types infer from the passed functions).
