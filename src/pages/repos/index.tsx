@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
-import LoadingOverlay from "../../components/data/LoadingOverlay";
-import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
 import Container from "../../components/layout/Container";
 import Page from "../../components/layout/Page";
 
@@ -44,11 +42,7 @@ class ReposIndexPage extends React.Component<AllProps> {
     return (
       <Page>
         <Container>
-          {loading && (
-            <LoadingOverlay>
-              <LoadingOverlayInner>LOADING</LoadingOverlayInner>
-            </LoadingOverlay>
-          )}
+          {loading && <div>LOADING</div>}
 
           {this.renderRepoInfo(this.props.data)}
         </Container>
@@ -87,13 +81,13 @@ class ReposIndexPage extends React.Component<AllProps> {
 const mapStateToProps = ({ repos }: ApplicationState) => ({
   loading: repos.loading,
   errors: repos.errors,
-  data: repos.data
+  data: repos.data,
 });
 
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
 // You can access these via `this.props`.
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchRequest: () => dispatch(fetchRequest())
+  fetchRequest: () => dispatch(fetchRequest()),
 });
 
 // Now let's connect our component!
