@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { Normalize } from "styled-normalize";
 
 import Header from "./components/Header/Header";
+import MetaData from "./components/MetaData/MetaData";
 import configureStore from "./configureStore";
 import GlobalStyles from "./styles/GlobalStyles";
 
@@ -23,6 +24,9 @@ const App = () => {
           {/* Add global styles */}
           <Normalize />
           <GlobalStyles />
+
+          {/* Add global Metadata - used per page in real apps */}
+          <MetaData />
 
           {/* Add header */}
           <Header />
