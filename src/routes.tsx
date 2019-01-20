@@ -2,7 +2,7 @@ import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
-import ReposPage from "./pages/repos";
+import Repos from "./pages/Repos";
 
 // If your app is big + you have routes with a lot of components, you should consider
 // code-splitting your routes! If you bundle stuff up with Webpack, I recommend `react-loadable`.
@@ -16,7 +16,7 @@ import ReposPage from "./pages/repos";
 const Routes: React.SFC = () => (
   <Switch>
     <Route exact={true} path="/" component={Home} />
-    <Route path="/repos" component={ReposPage} />
+    <Route path="/repos" component={Repos} />
     <Route component={() => <div>Not Found</div>} />
   </Switch>
 );

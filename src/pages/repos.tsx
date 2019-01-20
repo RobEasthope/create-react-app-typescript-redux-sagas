@@ -15,7 +15,7 @@ interface PropsFromState {
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState & RouteComponentProps<{}> & ConnectedReduxProps;
 
-class ReposPage extends React.Component<AllProps> {
+class Repos extends React.Component<AllProps> {
   public render() {
     const { match } = this.props;
 
@@ -36,9 +36,9 @@ class ReposPage extends React.Component<AllProps> {
 // separate them from each other to prevent prop conflicts.
 const mapStateToProps = ({ repos }: ApplicationState) => ({
   loading: repos.loading,
-  errors: repos.errors
+  errors: repos.errors,
 });
 
 // Now let's connect our component!
 // With redux v4's improved typings, we can finally omit generics here.
-export default connect(mapStateToProps)(ReposPage);
+export default connect(mapStateToProps)(Repos);
