@@ -4,7 +4,7 @@ import {
   fork,
   put,
   takeEvery,
-  takeLatest
+  takeLatest,
 } from "redux-saga/effects";
 import callApi from "../../utils/callApi";
 import { fetchError, fetchSuccess, selectRepo, repoSelected } from "./actions";
@@ -72,8 +72,8 @@ function* watchSelectRepo() {
 }
 
 // We can also use `fork()` here to split our saga into multiple watchers.
-function* heroesSaga() {
+function* reposSaga() {
   yield all([fork(watchFetchRequest), fork(watchSelectRepo)]);
 }
 
-export default heroesSaga;
+export default reposSaga;
