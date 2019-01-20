@@ -8,12 +8,16 @@ const Header = () => (
       FOO
     </Heading>
     <Box mx="auto" />
-    <NavLink exact={true} to="/">
-      Home
-    </NavLink>
-    <NavLink exact={true} to="/repos">
-      Repos
-    </NavLink>
+    <Box mx={3}>
+      <NavLink exact={true} to="/">
+        Home
+      </NavLink>
+    </Box>
+    <Box mx={3}>
+      <NavLink exact={true} to="/repos">
+        Repos
+      </NavLink>
+    </Box>
   </Flex>
 );
 
