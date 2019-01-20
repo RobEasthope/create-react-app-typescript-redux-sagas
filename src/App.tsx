@@ -1,18 +1,12 @@
 import * as React from "react";
-import { Provider, connect } from "react-redux";
-import { ConnectedRouter } from "connected-react-router";
-import { Store } from "redux";
-import { History } from "history";
-import { ThemeProvider } from "styled-components";
+import { connect } from "react-redux";
 
 import Routes from "./routes";
 import { ApplicationState } from "./store";
 import { ThemeColors } from "./store/layout";
-// import * as themes from "./styles/theme";
-import lightTheme from "./styles/theme/light";
 
-import Normalize from "./styles/normalize";
 import GlobalStyles from "./styles/GlobalStyles";
+import Normalize from "./styles/normalize";
 
 // Separate props from state and props from dispatch to their own interfaces.
 interface PropsFromState {
@@ -29,7 +23,7 @@ interface OwnProps {}
 // Create an intersection type of the component props and our Redux props.
 type AllProps = PropsFromState & PropsFromDispatch & OwnProps;
 
-class Main extends React.Component<AllProps> {
+class App extends React.Component<AllProps> {
   public render() {
     const { theme } = this.props;
 
@@ -58,4 +52,4 @@ export default connect<
   PropsFromDispatch,
   OwnProps,
   ApplicationState
->(mapStateToProps)(Main);
+>(mapStateToProps)(App);

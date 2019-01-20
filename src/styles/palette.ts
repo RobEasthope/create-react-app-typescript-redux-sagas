@@ -1,4 +1,4 @@
-const brandColors = {
+const palette = {
   black: "#000000",
   gray5: "#ebebea",
   gray10: "#e5e5e5",
@@ -11,7 +11,7 @@ const brandColors = {
   green: "#9ee79a",
   white: "#fefefe",
   yellow: "#f3df49",
-  red: "#eb5558"
+  highlight: "#2e2e2c"
 };
 
-export default brandColors;
+export default palette;

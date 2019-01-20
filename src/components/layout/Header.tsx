@@ -1,9 +1,9 @@
-import { css } from "emotion";
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-import LayoutContainer from "../../containers/LayoutContainer";
 import styled from "styled-components";
+import LayoutContainer from "../../containers/LayoutContainer";
 import Container from "./Container";
+import palette from "../../styles/palette";
 
 interface HeaderProps {
   title: string;
@@ -16,15 +16,10 @@ const Header: React.SFC<HeaderProps> = ({ title }) => (
         <Title>{title}</Title>
       </HeaderLeft>
       <HeaderNav>
-        <HeaderNavLink exact={true} to="/" activeClassName={HeaderLinkActive}>
+        <HeaderNavLink exact={true} to="/">
           Home
         </HeaderNavLink>
-        <HeaderNavLink to="/heroes" activeClassName={HeaderLinkActive}>
-          Heroes
-        </HeaderNavLink>
-        <HeaderNavLink to="/teams" activeClassName={HeaderLinkActive}>
-          Teams
-        </HeaderNavLink>
+        <HeaderNavLink to="/repos">Repos</HeaderNavLink>
       </HeaderNav>
       <HeaderRight>
         <LayoutContainer>
@@ -48,9 +43,11 @@ export default Header;
 
 const Wrapper = styled("header")`
   padding: 0.5rem 1.5rem;
-  background-color: red;
+  background-color: ${palette.highlight};
   color: white;
-  font-family: "'IBM Plex Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif";
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    Arial, sans-serif;
 `;
 
 const HeaderInner = styled(Container)`
@@ -81,10 +78,6 @@ const HeaderNavLink = styled(NavLink)`
   margin: 0 1rem;
 `;
 
-const HeaderLinkActive = css`
-  text-decoration: underline;
-`;
-
 const HeaderRight = styled("div")`
   padding-left: 1rem;
 `;
@@ -104,7 +97,7 @@ const ThemeSwitcherButton = styled.button`
   border: 1px solid #ffffff;
   border-radius: 3px;
   background-color: #ffffff;
-  color: red;
+  color: ${palette.highlight};
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;

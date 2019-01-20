@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { LayoutState, LayoutActionTypes } from "./types";
+import { LayoutActionTypes, LayoutState } from "./types";
 
 // Type-safe initialState!
 const initialState: LayoutState = {
