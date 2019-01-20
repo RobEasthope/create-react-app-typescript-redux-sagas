@@ -1,7 +1,8 @@
 import * as React from "react";
+import { Text } from "rebass";
 
 const Home = () => (
-  <div>
+  <Text fontSize={[3, 4, 5]}>
     <h1>Create-react-app-typescript-redux-sagas</h1>
     <p>This boilerplate example adds:</p>
     <ul>
@@ -11,7 +12,7 @@ const Home = () => (
       <li>Styled Components</li>
       <li>React specific and Prettier friendly TSlint with a few tweaks</li>
     </ul>
-  </div>
+  </Text>
 );
 
 export default Home;
