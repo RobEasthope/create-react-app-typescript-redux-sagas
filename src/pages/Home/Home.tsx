@@ -1,9 +1,7 @@
 import * as React from "react";
-import styled from "styled-components";
-import palette from "../../styles/palette";
 
 export default () => (
-  <PageContent>
+  <div>
     <h1>Create-react-app-typescript-redux-sagas</h1>
     <p>This boilerplate example adds:</p>
     <ul>
@@ -13,15 +11,5 @@ export default () => (
       <li>Styled Components</li>
       <li>React specific and Prettier friendly TSlint with a few tweaks</li>
     </ul>
-  </PageContent>
+  </div>
 );
-
-const PageContent = styled.article`
-  max-width: 720px;
-  margin: 0 auto;
-  line-height: 1.6;
-
-  a {
-    color: ${palette.highlight};
-  }
-`;
