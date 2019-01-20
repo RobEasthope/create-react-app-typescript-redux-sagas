@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const Home = () => (
-  <div>
+  <nav>
     <h1>Create-react-app-typescript-redux-sagas</h1>
     <p>This boilerplate example adds:</p>
     <ul>
@@ -11,7 +11,7 @@ const Home = () => (
       <li>Styled Components</li>
       <li>React specific and Prettier friendly TSlint with a few tweaks</li>
     </ul>
-  </div>
+  </nav>
 );
 
 export default Home;
