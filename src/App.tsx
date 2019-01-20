@@ -4,7 +4,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { Normalize } from "styled-normalize";
 
-import Header from "./components/layout/Header";
+import Header from "./components/Header/Header";
 import configureStore from "./configureStore";
 import GlobalStyles from "./styles/GlobalStyles";
 
