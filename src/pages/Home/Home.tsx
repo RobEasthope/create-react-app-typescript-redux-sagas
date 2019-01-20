@@ -6,7 +6,7 @@ const Home = () => (
     <h1>Create-react-app-typescript-redux-sagas</h1>
     <p>This boilerplate example adds:</p>
     <ul>
-      <li>Create React App boilerpate with Typscript</li>
+      <li>Create React App boilerpate with Typescript</li>
       <li>React Redux</li>
       <li>Redux Sagas</li>
       <li>Styled Components</li>
