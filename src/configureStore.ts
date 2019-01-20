@@ -6,7 +6,7 @@ import { History } from "history";
 import { applyMiddleware, createStore, Store } from "redux";
 // We'll be using Redux Devtools. We can use the `composeWithDevTools()`
 // directive so we can pass our middleware along with it
-import { composeWithDevTools } from "redux-devtools-extension";
+import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import createSagaMiddleware from "redux-saga";
 
 // Import the state interface and our combined reducers/sagas.
