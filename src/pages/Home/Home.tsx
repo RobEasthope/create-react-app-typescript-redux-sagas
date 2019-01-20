@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default () => (
+const Home = () => (
   <div>
     <h1>Create-react-app-typescript-redux-sagas</h1>
     <p>This boilerplate example adds:</p>
@@ -13,3 +13,5 @@ export default () => (
     </ul>
   </div>
 );
+
+export default Home;
