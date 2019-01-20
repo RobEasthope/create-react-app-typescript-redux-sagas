@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Header from "./components/layout/Header";
-import Root from "./components/layout/Root";
 import IndexPage from "./pages/Home/Home";
 import ReposPage from "./pages/repos";
 
@@ -16,13 +14,11 @@ import ReposPage from "./pages/repos";
 // code-splittable.
 
 const Routes: React.SFC = () => (
-  <Root>
-    <Switch>
-      <Route exact={true} path="/" component={IndexPage} />
-      <Route path="/repos" component={ReposPage} />
-      <Route component={() => <div>Not Found</div>} />
-    </Switch>
-  </Root>
+  <Switch>
+    <Route exact={true} path="/" component={IndexPage} />
+    <Route path="/repos" component={ReposPage} />
+    <Route component={() => <div>Not Found</div>} />
+  </Switch>
 );
 
 export default Routes;
