@@ -1,7 +1,6 @@
+import { connectRouter } from "connected-react-router";
 import { Action, AnyAction, combineReducers, Dispatch } from "redux";
 import { all, fork } from "redux-saga/effects";
-
-import { connectRouter } from "connected-react-router";
 
 import { layoutReducer, LayoutState } from "./layout";
 
@@ -28,7 +27,7 @@ export const createRootReducer = history =>
   combineReducers<ApplicationState>({
     router: connectRouter(history),
     layout: layoutReducer,
-    repos: reposReducer
+    repos: reposReducer,
   });
 
 // Here we use `redux-saga` to trigger actions asynchronously. `redux-saga` uses something called a

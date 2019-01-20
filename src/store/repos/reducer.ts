@@ -1,12 +1,12 @@
 import { Reducer } from "redux";
-import { ReposState, ReposActionTypes } from "./types";
+import { ReposActionTypes, ReposState } from "./types";
 
 // Type-safe initialState!
 const initialState: ReposState = {
   data: [],
   errors: undefined,
   selected: undefined,
-  loading: false
+  loading: false,
 };
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
