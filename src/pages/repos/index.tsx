@@ -1,9 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import Container from "../../components/layout/Container";
-import Page from "../../components/layout/Page";
-
 import { Dispatch } from "redux";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
 import { fetchRequest } from "../../store/repos/actions";
@@ -37,13 +34,11 @@ class ReposIndexPage extends React.Component<AllProps> {
     const { loading } = this.props;
 
     return (
-      <Page>
-        <Container>
-          {loading && <div>LOADING</div>}
+      <div>
+        {loading && <div>LOADING</div>}
 
-          {this.renderRepoInfo(this.props.data)}
-        </Container>
-      </Page>
+        {this.renderRepoInfo(this.props.data)}
+      </div>
     );
   }
 
