@@ -17,7 +17,6 @@ import ReposPage from "./pages/repos";
 
 const Routes: React.SFC = () => (
   <Root>
-    <Header title="Example App" />
     <Switch>
       <Route exact={true} path="/" component={IndexPage} />
       <Route path="/repos" component={ReposPage} />
